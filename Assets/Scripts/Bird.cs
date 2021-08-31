@@ -28,6 +28,9 @@ public class Bird : MonoBehaviour
     private string currentName;
     List<GameObject> removableBirdList = new List<GameObject>();
 
+    public GameObject lineObj;
+    List<GameObject> lineBirdList = new List<GameObject>();
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -76,6 +79,7 @@ public class Bird : MonoBehaviour
                     {
                         return;
                     }
+                    PushToLineList(hitObj, lastBird);
                     lastBird = hitObj;
                     PushToBirdList(hitObj);
                 }
@@ -118,7 +122,12 @@ public class Bird : MonoBehaviour
             {
                 ChangeColor(obj, 1.0f);
             }
+            foreach (GameObject obj in lineBirdList)
+            {
+                Destroy(obj);
+            }
             removableBirdList = new List<GameObject>();
+            lineBirdList = new List<GameObject>();
             firstBird = null;
             lastBird = null;
         };
@@ -128,6 +137,22 @@ public class Bird : MonoBehaviour
     {
         removableBirdList.Add(obj);
         ChangeColor(obj, 0.5f);
+    }
+    private void PushToLineList(GameObject lastObj, GameObject hitObj)
+    {
+        GameObject line = (GameObject)Instantiate(lineObj);
+        LineRenderer renderer = line.GetComponent<LineRenderer>();
+        //線の太さ
+        renderer.startWidth = 0.1f;
+        renderer.endWidth = 0.1f;
+        //頂点の数
+        renderer.positionCount = 2;
+        //頂点を設定
+        renderer.SetPosition(0, new Vector3(lastObj.transform.position.x,
+            lastObj.transform.position.y, -1.0f));
+        renderer.SetPosition(1, new Vector3(hitObj.transform.position.x,
+            hitObj.transform.position.y, -1.0f));
+        lineBirdList.Add(line);
     }
     private void ChangeColor(GameObject obj, float transparency)
     {

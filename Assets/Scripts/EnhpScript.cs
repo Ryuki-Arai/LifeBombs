@@ -27,5 +27,6 @@ public class EnhpScript : MonoBehaviour
             SceneManager.LoadScene("Result");
         }
         else if (hp > hpslider.maxValue) hp = hpslider.maxValue;
+        else hp += Time.deltaTime*3;
     }
 }
