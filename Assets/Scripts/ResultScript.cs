@@ -7,11 +7,11 @@ public class ResultScript : MonoBehaviour
 {
     public static bool result;
 
-    TextMeshProUGUI gmrsl;
+    TextMeshProUGUI gmRsl;
     // Start is called before the first frame update
     void Start()
     {
-        gmrsl = GetComponent<TextMeshProUGUI>();
+        gmRsl = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -19,11 +19,11 @@ public class ResultScript : MonoBehaviour
     {
         if (result)
         {
-            gmrsl.text = "Congratulation!!!";
+            gmRsl.text = "Congratulation!!!";
         }
         else
         {
-            gmrsl.text = "That's too bad...";
+            gmRsl.text = "That's too bad...";
         }
     }
 }
