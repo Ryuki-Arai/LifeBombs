@@ -91,6 +91,13 @@ public class Bird : MonoBehaviour
                     PopToBombList(lastBomb);
                     lastBomb = hitObj;
                 }
+                if (hitObj.tag == ovjTag && hitObj.name == currentName
+                && hitObj != lastBird && 0 < removableBirdList.IndexOf(hitObj))
+                {
+                    PopToLineList();
+                    PopToBirdList(lastBird);
+                    lastBird = hitObj;
+                }
             }
         };
         TouchManager.Ended += (info) =>
@@ -148,9 +155,15 @@ public class Bird : MonoBehaviour
         removableBombList.Add(obj);
         ChangeColor(obj, 0.5f);
     }
+<<<<<<< HEAD
     private void PopToBombList(GameObject obj)
     {
         removableBombList.Remove(obj);
+=======
+    private void PopToBirdList(GameObject obj)
+    {
+        removableBirdList.Remove(obj);
+>>>>>>> 587be0ad4d3eb91993a0dad533c0c2c6deecd0b9
         ChangeColor(obj, 1.0f);
     }
     private void PushToLineList(GameObject lastObj, GameObject hitObj)
@@ -173,6 +186,11 @@ public class Bird : MonoBehaviour
     {
         Destroy(lineBombList[lineBombList.Count-1]);
         lineBombList.RemoveAt(lineBombList.Count - 1);
+    }
+    private void PopToLineList()
+    {
+        Destroy(lineBirdList[lineBirdList.Count-1]);
+        lineBirdList.RemoveAt(lineBirdList.Count - 1);
     }
     private void ChangeColor(GameObject obj, float transparency)
     {
