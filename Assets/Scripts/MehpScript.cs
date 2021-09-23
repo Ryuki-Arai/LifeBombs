@@ -19,13 +19,8 @@ public class MehpScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
         hpSlider.value = hp;
         if (hp <= hpSlider.minValue)
-=======
-        hpSlider.value = hp ;
-        if (hp < hpSlider.minValue)
->>>>>>> 587be0ad4d3eb91993a0dad533c0c2c6deecd0b9
         {
             hp = hpSlider.minValue;
             ResultScript.result = false;
