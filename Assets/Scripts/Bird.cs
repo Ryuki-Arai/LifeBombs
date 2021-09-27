@@ -5,7 +5,7 @@ using TMPro;
 
 public class Bird : MonoBehaviour
 {
-
+    float time;
 
     // 鳥のプレハブを格納する配列
     string ovjTag = "Bomb";
@@ -35,7 +35,7 @@ public class Bird : MonoBehaviour
     public GameObject lineObj;
     List<GameObject> lineBombList = new List<GameObject>();
 
-    int Score, MaxCombo;
+    int Score, Combo;
     public int defScore;
     public GameObject score;
     public GameObject combo;
@@ -117,10 +117,10 @@ public class Bird : MonoBehaviour
         {
              // リストの格納数を取り出し最小数と比較する
             int removeCount = removableBombList.Count;
-            PushScore(removeCount);
             ScoreManage.SetLen(removeCount);
             if (removeCount >= removeBombMinCount)
             {
+                PushScore(removeCount);
                 switch (firstBomb.name)
                 {
                     case "Bomb0":
@@ -144,11 +144,12 @@ public class Bird : MonoBehaviour
                 {
                     Vector3 pos = obj.transform.position;
                     Destroy(obj);
-                    Instantiate(Boomb,pos, Quaternion.identity);
+                    Instantiate(Boomb, pos, Quaternion.identity);
                 }
                 // 補充
                 StartCoroutine(DropBombs(removeCount));
             }
+            else ScoreManage.SetCombo(false);
 
             foreach (GameObject obj in removableBombList)
             {
@@ -168,9 +169,11 @@ public class Bird : MonoBehaviour
     }
     private void Update()
     {
+        time += Time.deltaTime;
+        if (time > 3f) ScoreManage.SetCombo(false);
         GetResult();
         scoreText.text = Score.ToString("N0");
-        comboText.text = MaxCombo.ToString();
+        comboText.text = Combo.ToString();
     }
     private void PushToBombList(GameObject obj)
     {
@@ -221,12 +224,15 @@ public class Bird : MonoBehaviour
         else if (Length < 20) pScore = Length * defScore + 2500;
         else if (Length < 30) pScore = Length * defScore + 3000;
         else if (Length >= 30) pScore = Length * defScore + 3500;
-        ScoreManage.SetScore(pScore);
+        var GoScore = pScore + (pScore * ((Combo + 10) / 100));
+        ScoreManage.SetScore(GoScore);
+        ScoreManage.SetCombo(true);
+        time = 0f;
     }
     private void GetResult()
     {
         Score = ScoreManage.GetScore();
-        MaxCombo = ScoreManage.GetCombo();
+        Combo = ScoreManage.GetCombo();
     }
 
     IEnumerator DropBombs(int count)

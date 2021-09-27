@@ -6,11 +6,11 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int Score, MaxCombo, MaxLen;
+    private int Score, HighScore, Combo, MaxCombo, MaxLen;
 
     public void SetZero()
     {
-        
+        Combo = 0;
         PlayerPrefs.SetInt("SCORE", 0);
         Score = PlayerPrefs.GetInt("SCORE");
         PlayerPrefs.SetInt("MAXCOMBO", 0);
@@ -23,13 +23,22 @@ public class ScoreManager : MonoBehaviour
     public void SetScore(int PulsScore)
     {
         Score += PulsScore;
+        HighScore = HighScore < Score ? Score : HighScore;
         PlayerPrefs.SetInt("SCORE", Score);
+        PlayerPrefs.SetInt("HIGHSCORE", HighScore);
     }
 
     public void SetCombo(bool CountCombo)
     {
-        if (CountCombo) MaxCombo++;
-        else MaxCombo = 0;
+        if (CountCombo)
+        {
+            Combo++;
+            MaxCombo = MaxCombo < Combo ? Combo : MaxCombo;
+        }
+        else
+        {
+            Combo = 0;
+        }
         PlayerPrefs.SetInt("MAXCOMBO", MaxCombo);
     }
 
@@ -44,7 +53,11 @@ public class ScoreManager : MonoBehaviour
 
     public int GetScore() { return PlayerPrefs.GetInt("SCORE"); }
 
-    public int GetCombo() { return PlayerPrefs.GetInt("MAXCOMBO"); }
+    public int GetMaxScore() { return PlayerPrefs.GetInt("HIGHSCORE"); }
+
+    public int GetMaxCombo() { return PlayerPrefs.GetInt("MAXCOMBO"); }
+
+    public int GetCombo() { return Combo; }
 
     public int GetLen() { return PlayerPrefs.GetInt("MAXLEN"); }
 

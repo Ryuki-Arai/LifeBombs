@@ -7,7 +7,7 @@ public class ResultScript : MonoBehaviour
 {
     public static bool result;
     TextMeshProUGUI gmRsl;
-    int Score,MaxCombo,MaxLen;
+    int Score,MaxCombo,MaxLen,maxScore;
     public GameObject score;
     public GameObject combo;
     public GameObject len;
@@ -44,7 +44,7 @@ public class ResultScript : MonoBehaviour
     private void GetResult()
     {
         Score = ScoreManage.GetScore();
-        MaxCombo = ScoreManage.GetCombo();
+        MaxCombo = ScoreManage.GetMaxCombo();
         MaxLen = ScoreManage.GetLen();
     }
 }
