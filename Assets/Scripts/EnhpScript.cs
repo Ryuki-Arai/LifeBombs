@@ -7,26 +7,27 @@ using UnityEngine.SceneManagement;
 public class EnhpScript : MonoBehaviour
 {
     public static float hp;
-    Slider hpslider;
+    Slider hpSlider;
 
     // Start is called before the first frame update
     void Start()
     {
-        hpslider = GetComponent<Slider>();
-        hp = hpslider.maxValue;
+        hpSlider = GetComponent<Slider>();
+        hp = hpSlider.maxValue;
     }
 
     // Update is called once per frame
     void Update()
     {
-        hpslider.value = hp;
-        if (hp < hpslider.minValue)
+        hpSlider.value = hp;
+        if (hp <= hpSlider.minValue)
         {
-            hp = hpslider.minValue;
+            hp = hpSlider.minValue;
             ResultScript.result = true;
+            PlayerPrefs.Save();
             SceneManager.LoadScene("Result");
         }
-        else if (hp > hpslider.maxValue) hp = hpslider.maxValue;
-        else hp += Time.deltaTime*3;
+        else if (hp > hpSlider.maxValue) hp = hpSlider.maxValue;
+        else hp += Time.deltaTime * 3;
     }
 }
