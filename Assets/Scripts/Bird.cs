@@ -104,8 +104,13 @@ public class Bird : MonoBehaviour
                     lastBomb = hitObj;
                     PushToBombList(hitObj);
                 }
+<<<<<<< HEAD
                 if (hitObj.tag == ovjTag && hitObj.name == currentName && removableBombList.Count > 1
                 && hitObj == removableBombList[removableBombList.Count-2] && 0 < removableBombList.IndexOf(hitObj))
+=======
+                if (hitObj.tag == ovjTag && hitObj.name == currentName
+                && hitObj != removableBombList[removableBombList.Count-1] && 0 < removableBombList.IndexOf(hitObj))
+>>>>>>> a4f409f58588705fe5fc43782cbb20b4413df77f
                 {
                     PopToLineList();
                     PopToBombList(lastBomb);
@@ -117,8 +122,11 @@ public class Bird : MonoBehaviour
         {
              // リストの格納数を取り出し最小数と比較する
             int removeCount = removableBombList.Count;
+<<<<<<< HEAD
             PushScore(removeCount);
             ScoreManage.SetLen(removeCount);
+=======
+>>>>>>> a4f409f58588705fe5fc43782cbb20b4413df77f
             if (removeCount >= removeBombMinCount)
             {
                 switch (firstBomb.name)
@@ -164,6 +172,7 @@ public class Bird : MonoBehaviour
             lastBomb = null;
         };
         StartCoroutine(DropBombs(100));
+<<<<<<< HEAD
         
     }
     private void Update()
@@ -174,6 +183,11 @@ public class Bird : MonoBehaviour
     }
     private void PushToBombList(GameObject obj)
     {
+=======
+    }
+    private void PushToBombList(GameObject obj)
+    {
+>>>>>>> a4f409f58588705fe5fc43782cbb20b4413df77f
         removableBombList.Add(obj);
         ChangeColor(obj, 0.5f);
     }

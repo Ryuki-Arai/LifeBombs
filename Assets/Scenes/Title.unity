@@ -940,7 +940,10 @@ GameObject:
   - component: {fileID: 638489515}
   - component: {fileID: 638489518}
   - component: {fileID: 638489519}
+<<<<<<< HEAD
   - component: {fileID: 638489520}
+=======
+>>>>>>> a4f409f58588705fe5fc43782cbb20b4413df77f
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1167,6 +1170,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< HEAD
 --- !u!114 &638489520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,6 +1183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4694767fbfd25b14d8fa992b5a2b1991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> a4f409f58588705fe5fc43782cbb20b4413df77f
 --- !u!1 &712711534
 GameObject:
   m_ObjectHideFlags: 0
