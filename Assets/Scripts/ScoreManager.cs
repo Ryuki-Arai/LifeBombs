@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -23,9 +22,15 @@ public class ScoreManager : MonoBehaviour
     public void SetScore(int PulsScore)
     {
         Score += PulsScore;
-        HighScore = HighScore < Score ? Score : HighScore;
         PlayerPrefs.SetInt("SCORE", Score);
-        PlayerPrefs.SetInt("HIGHSCORE", HighScore);
+        SetMaxScore();
+    }
+
+    public void SetMaxScore()
+    {
+        HighScore = PlayerPrefs.GetInt("HIGHSCORE");
+        if (HighScore < Score) PlayerPrefs.SetInt("HIGHSCORE", Score);
+        else PlayerPrefs.SetInt("HIGHSCORE", HighScore);
     }
 
     public void SetCombo(bool CountCombo)

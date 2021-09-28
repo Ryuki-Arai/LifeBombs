@@ -36,7 +36,6 @@ public class Bird : MonoBehaviour
     List<GameObject> lineBombList = new List<GameObject>();
 
     int Score, Combo;
-    public int defScore;
     public GameObject score;
     public GameObject combo;
     TextMeshProUGUI scoreText;
@@ -120,25 +119,29 @@ public class Bird : MonoBehaviour
             ScoreManage.SetChain(removeCount);
             if (removeCount >= removeBombMinCount)
             {
-                PushScore(removeCount);
+                int scoreVol = 0;
                 switch (firstBomb.name)
                 {
                     case "Bomb0":
                         float atk = 10 * removableBombList.Count;//Mathf.Pow(2, removableBombList.Count);
                         EnhpScript.hp -= atk;
+                        scoreVol = 300;
                         audioSource.PlayOneShot(atkSE);
                         break;
                     case "Bomb1":
                         float rec = 10 * removableBombList.Count; //Mathf.Pow(2, removableBombList.Count);
                         MehpScript.hp += rec;
+                        scoreVol = 100;
                         audioSource.PlayOneShot(recSE);
                         break;
                     case "Bomb2":
                         float dam = 10 * removableBombList.Count; //Mathf.Pow(2, removableBombList.Count);
                         MehpScript.hp -= dam;
+                        scoreVol = 500;
                         audioSource.PlayOneShot(damSE);
                         break;
                 }
+                PushScore(removeCount,scoreVol);
                 // 消す
                 foreach (GameObject obj in removableBombList)
                 {
@@ -214,7 +217,7 @@ public class Bird : MonoBehaviour
             renderer.color.b,
             transparency);
     }
-    private void PushScore(int Length)
+    private void PushScore(int Length, int defScore)
     {
         int pScore = 0;
         if (Length < 4) pScore = Length * defScore;

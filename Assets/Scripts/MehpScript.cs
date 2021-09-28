@@ -28,5 +28,6 @@ public class MehpScript : MonoBehaviour
             SceneManager.LoadScene("Result");
         }
         else if (hp > hpSlider.maxValue) hp = hpSlider.maxValue;
+        else hp -= Time.deltaTime*3;
     }
 }
