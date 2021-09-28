@@ -117,7 +117,7 @@ public class Bird : MonoBehaviour
         {
              // リストの格納数を取り出し最小数と比較する
             int removeCount = removableBombList.Count;
-            ScoreManage.SetLen(removeCount);
+            ScoreManage.SetChain(removeCount);
             if (removeCount >= removeBombMinCount)
             {
                 PushScore(removeCount);

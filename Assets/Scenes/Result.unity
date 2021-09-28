@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 348766956}
   - component: {fileID: 348766955}
   m_Layer: 5
-  m_Name: LengthText
+  m_Name: ChainText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,8 +238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: -18}
-  m_SizeDelta: {x: 799.99994, y: 210}
+  m_AnchoredPosition: {x: 0.000015259, y: -229}
+  m_SizeDelta: {x: 799.99994, y: 58.819397}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348766955
 MonoBehaviour:
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MaxLen
+  m_text: 'MaxChain : 000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f24701fac8a55c4b8efbe7fc8edff32, type: 2}
   m_sharedMaterial: {fileID: -6336472507942402560, guid: 1f24701fac8a55c4b8efbe7fc8edff32,
@@ -288,8 +288,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -610,7 +610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: 191}
+  m_AnchoredPosition: {x: 0.000015259, y: 17}
   m_SizeDelta: {x: 799.99994, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987090443
@@ -660,15 +660,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 32
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -739,15 +739,15 @@ RectTransform:
   m_GameObject: {fileID: 1183075723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 2.895237, y: 2.895237, z: 2.895237}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1877614978}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: 562}
-  m_SizeDelta: {x: 276, y: 44.691414}
+  m_AnchoredPosition: {x: -0.000061035, y: 592.8}
+  m_SizeDelta: {x: 800.0002, y: 237.91354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1183075725
 MonoBehaviour:
@@ -768,7 +768,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Result
+  m_text: 'Success
+
+    Faild'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f24701fac8a55c4b8efbe7fc8edff32, type: 2}
   m_sharedMaterial: {fileID: -6336472507942402560, guid: 1f24701fac8a55c4b8efbe7fc8edff32,
@@ -796,8 +798,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 144
+  m_fontSizeBase: 144
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -860,7 +862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 1991472202}
   combo: {fileID: 987090441}
-  len: {fileID: 348766953}
+  chain: {fileID: 348766953}
 --- !u!114 &1183075728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,7 +1046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -246.09518}
+  m_AnchoredPosition: {x: 0, y: -364}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1380299616
@@ -1288,7 +1290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: 400}
+  m_AnchoredPosition: {x: 0.000015259, y: 322}
   m_SizeDelta: {x: 799.99994, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1991472204
@@ -1338,8 +1340,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

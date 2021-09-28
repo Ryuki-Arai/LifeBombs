@@ -6,7 +6,7 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int Score, HighScore, Combo, MaxCombo, MaxLen;
+    private int Score, HighScore, Combo, MaxCombo, MaxChain;
 
     public void SetZero()
     {
@@ -15,8 +15,8 @@ public class ScoreManager : MonoBehaviour
         Score = PlayerPrefs.GetInt("SCORE");
         PlayerPrefs.SetInt("MAXCOMBO", 0);
         MaxCombo = PlayerPrefs.GetInt("MAXCOMBO");
-        PlayerPrefs.SetInt("MAXLEN", 0);
-        MaxLen = PlayerPrefs.GetInt("MAXLEN");
+        PlayerPrefs.SetInt("MAXCHAIN", 0);
+        MaxChain = PlayerPrefs.GetInt("MAXCHAIN");
         PlayerPrefs.Save();
     }
 
@@ -42,13 +42,13 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetInt("MAXCOMBO", MaxCombo);
     }
 
-    public void SetLen(int NewLen)
+    public void SetChain(int NewChain)
     {
-        if (NewLen > MaxLen)
+        if (NewChain > MaxChain)
         {
-            MaxLen = NewLen;
+            MaxChain = NewChain;
         }
-        PlayerPrefs.SetInt("MAXLEN", MaxLen);
+        PlayerPrefs.SetInt("MAXCHAIN", MaxChain);
     }
 
     public int GetScore() { return PlayerPrefs.GetInt("SCORE"); }
@@ -59,6 +59,6 @@ public class ScoreManager : MonoBehaviour
 
     public int GetCombo() { return Combo; }
 
-    public int GetLen() { return PlayerPrefs.GetInt("MAXLEN"); }
+    public int GetChain() { return PlayerPrefs.GetInt("MAXCHAIN"); }
 
 }

@@ -7,13 +7,13 @@ public class ResultScript : MonoBehaviour
 {
     public static bool result;
     TextMeshProUGUI gmRsl;
-    int Score,MaxCombo,MaxLen,maxScore;
+    int Score,MaxCombo,MaxChain;
     public GameObject score;
     public GameObject combo;
-    public GameObject len;
+    public GameObject chain;
     TextMeshProUGUI scoreText;
     TextMeshProUGUI comboText;
-    TextMeshProUGUI lenText;
+    TextMeshProUGUI chainText;
     ScoreManager ScoreManage;
 
     // Start is called before the first frame update
@@ -22,10 +22,10 @@ public class ResultScript : MonoBehaviour
         gmRsl = GetComponent<TextMeshProUGUI>();
         score = GameObject.Find("ScoreText");
         combo = GameObject.Find("ComboText");
-        len = GameObject.Find("LengthText");
+        chain = GameObject.Find("ChainText");
         scoreText = score.GetComponent<TextMeshProUGUI>();
         comboText = combo.GetComponent<TextMeshProUGUI>();
-        lenText = len.GetComponent<TextMeshProUGUI>();
+        chainText = chain.GetComponent<TextMeshProUGUI>();
         ScoreManage = GetComponent<ScoreManager>();
         GetResult();
     }
@@ -33,18 +33,18 @@ public class ResultScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (result) gmRsl.text = "Congratulation!!!";
-        else gmRsl.text = "That's too bad...";
+        if (result) gmRsl.text = "Success!!";
+        else gmRsl.text = "Faild...";
         
         scoreText.text = "Score\n" + Score.ToString("N0");
-        comboText.text = "MaxCombo\n" + MaxCombo + "Combo";
-        lenText.text = "MaxLen\n" + MaxLen + "Length";
+        comboText.text = "MaxCombo\n" + MaxCombo;
+        chainText.text = "MaxChain : " + MaxChain;
     }
 
     private void GetResult()
     {
         Score = ScoreManage.GetScore();
         MaxCombo = ScoreManage.GetMaxCombo();
-        MaxLen = ScoreManage.GetLen();
+        MaxChain = ScoreManage.GetChain();
     }
 }
